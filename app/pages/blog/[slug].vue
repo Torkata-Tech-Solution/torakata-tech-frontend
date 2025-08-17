@@ -434,6 +434,7 @@
       </aside>
     </div>
   </div>
+
 </template>
 
 <script lang="ts" setup>
@@ -489,51 +490,67 @@ const formatShortDate = (dateString: string) => {
   })
 }
 
-defineProps({});
-defineEmits([]);
+// Get composables directly in setup
+const route = useRoute()
+const config = useRuntimeConfig()
+const slug = route.params.slug as string
 
-const { data, pending, error, refresh } = await (async () => {
-  // Get slug from route params
-  const route = useRoute();
-  const slug = route.params.slug as string;
+// Fetch blog post data
+const { data, pending, error, refresh } = await useFetch<ApiResponse>(`${config.public.apiBase}/news/${slug}`, {
+  method: 'GET',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+})
 
-  // Fetch individual blog post by slug
-  const fetchResult = await useFetch<ApiResponse>(`${useRuntimeConfig().public.apiBase}/news/${slug}`, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
+// Handle 404 if post not found
+if (error.value) {
+  throw createError({
+    statusCode: 404,
+    statusMessage: 'Blog post not found'
+  })
+}
+
+// SEO Meta tags - use computed values for reactivity
+useHead({
+  title: computed(() => data.value?.data?.title || 'Blog Post'),
+  meta: [
+    { 
+      name: 'description', 
+      content: computed(() => data.value?.data?.excerpt || data.value?.data?.content?.substring(0, 160) || 'Read this blog post')
     },
-  });
-
-  // SEO Meta tags
-  useHead({
-    title: () => fetchResult.data.value?.data?.title || 'Blog Post',
-    meta: [
-      { name: 'description', content: () => fetchResult.data.value?.data?.excerpt || fetchResult.data.value?.data?.content?.substring(0, 160) || 'Read this blog post' },
-      { property: 'og:title', content: () => fetchResult.data.value?.data?.title || 'Blog Post' },
-      { property: 'og:description', content: () => fetchResult.data.value?.data?.excerpt || 'Read this blog post' },
-      { property: 'og:image', content: () => fetchResult.data.value?.data?.thumbnail || '/images/blog/default-thumbnail.png' },
-      { property: 'og:type', content: 'article' },
-      { property: 'og:url', content: () => `${useRuntimeConfig().public.baseUrl}/blog/${fetchResult.data.value?.data?.slug}` },
-      { name: 'twitter:card', content: 'summary_large_image' },
-      { name: 'twitter:title', content: () => fetchResult.data.value?.data?.title || 'Blog Post' },
-      { name: 'twitter:description', content: () => fetchResult.data.value?.data?.excerpt || 'Read this blog post' },
-      { name: 'twitter:image', content: () => fetchResult.data.value?.data?.thumbnail || '/images/blog/default-thumbnail.png' }
-    ]
-  });
-
-  // Handle 404 if post not found
-  if (fetchResult.error.value) {
-    throw createError({
-      statusCode: 404,
-      statusMessage: 'Blog post not found'
-    })
-  }
-
-  return fetchResult;
-})();
-
-console.log(data.value);
+    { 
+      property: 'og:title', 
+      content: computed(() => data.value?.data?.title || 'Blog Post')
+    },
+    { 
+      property: 'og:description', 
+      content: computed(() => data.value?.data?.excerpt || 'Read this blog post')
+    },
+    { 
+      property: 'og:image', 
+      content: computed(() => data.value?.data?.thumbnail || '/images/blog/default-thumbnail.png')
+    },
+    { property: 'og:type', content: 'article' },
+    { 
+      property: 'og:url', 
+      content: computed(() => `${config.public.baseUrl}/blog/${data.value?.data?.slug}`)
+    },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { 
+      name: 'twitter:title', 
+      content: computed(() => data.value?.data?.title || 'Blog Post')
+    },
+    { 
+      name: 'twitter:description', 
+      content: computed(() => data.value?.data?.excerpt || 'Read this blog post')
+    },
+    { 
+      name: 'twitter:image', 
+      content: computed(() => data.value?.data?.thumbnail || '/images/blog/default-thumbnail.png')
+    }
+  ]
+})
 </script>
 
 <style></style>

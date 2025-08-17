@@ -3,15 +3,12 @@
      <section class="border-t border-b border-gray-100 bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
       <div class="max-w-screen-xl px-4 py-8 mx-auto sm:py-16 lg:py-24">
         <div class="max-w-2xl mx-auto text-center">
-          <h2 class="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl dark:text-white">Stay in
-            touch
-          </h2>
-          <p class="max-w-xl mx-auto mb-6 text-gray-500 md:text-lg dark:text-gray-400">
-            Stay up to date with the roadmap
-            progress,
-            announcements and
-            exclusive discounts feel free to sign up with your email.
-          </p>
+            <h2 class="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl dark:text-white">Tetap Terhubung</h2>
+            <p class="max-w-xl mx-auto mb-6 text-gray-500 md:text-lg dark:text-gray-400">
+            Ikuti perkembangan roadmap,
+            pengumuman, dan
+            diskon eksklusif. Silakan daftar dengan email Anda.
+            </p>
 
           <form action="#" class="max-w-lg mx-auto">
             <div class="items-center mb-3 space-y-4 sm:flex sm:space-y-0">
@@ -27,17 +24,18 @@
                 </div>
                 <input
                   class="block w-full p-3 pl-10 text-sm text-gray-900 bg-white border border-gray-300 rounded-lg sm:rounded-none sm:rounded-l-lg focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                  placeholder="Enter your email" type="email" id="email" required>
+                  placeholder="Masukkan Email Kamu" type="email" id="email" required>
               </div>
-              <div>
+                <div class="w-full sm:w-auto">
                 <button type="submit"
-                  class="w-full px-5 py-3 text-sm font-medium text-center text-white border rounded-lg cursor-pointer bg-primary-700 border-primary-600 sm:rounded-none sm:rounded-r-lg hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:hover:border-primary-700 dark:focus:ring-primary-800">Subscribe</button>
-              </div>
+                  class="w-full sm:w-auto px-5 py-3 text-sm font-medium text-center text-white border rounded-lg cursor-pointer bg-blue-600 border-blue-600 sm:rounded-none sm:rounded-r-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 dark:bg-blue-500 dark:hover:bg-blue-600 dark:hover:border-blue-600 dark:focus:ring-blue-800 transition-colors duration-200">
+                  Subscribe
+                </button>
+                </div>
             </div>
 
-            <div class="text-sm text-left text-gray-500 dark:text-gray-300">We care about the protection of
-              your data. Read our <a href="#" class="text-gray-900 underline dark:text-white hover:no-underline">Privacy
-                Policy</a>.
+            <div class="text-sm text-left text-gray-500 dark:text-gray-300">
+              Kami peduli terhadap perlindungan data Anda. Baca <a href="#" class="text-gray-900 underline dark:text-white hover:no-underline">Kebijakan Privasi</a> kami.
             </div>
           </form>
         </div>
