@@ -342,7 +342,7 @@
 
                 <ul class="space-y-4">
                   <li class="flex items-start gap-2.5">
-                    <img class="object-cover w-6 h-6 rounded-full shrink-0" src="../..//images/users/bonnie-green.png"
+                    <img class="object-cover w-6 h-6 rounded-full shrink-0" src="/icons/person.png"
                       alt="">
                     <div class="flex-1 min-w-0">
                       <p class="text-base font-semibold text-gray-900 truncate dark:text-white">
@@ -360,7 +360,7 @@
                   </li>
 
                   <li class="flex items-start gap-2.5">
-                    <img class="object-cover w-6 h-6 rounded-full shrink-0" src="../..//images/users/jese-leos.png"
+                    <img class="object-cover w-6 h-6 rounded-full shrink-0" src="/icons/person.png"
                       alt="">
                     <div class="flex-1 min-w-0">
                       <p class="text-base font-semibold text-gray-900 truncate dark:text-white">
@@ -378,7 +378,7 @@
                   </li>
 
                   <li class="flex items-start gap-2.5">
-                    <img class="object-cover w-6 h-6 rounded-full shrink-0" src="../..//images/users/thomas-lean.png"
+                    <img class="object-cover w-6 h-6 rounded-full shrink-0" src="/icons/person.png"
                       alt="">
                     <div class="flex-1 min-w-0">
                       <p class="text-base font-semibold text-gray-900 truncate dark:text-white">
