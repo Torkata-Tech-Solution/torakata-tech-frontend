@@ -467,17 +467,7 @@
               </div>
             </div>
 
-            <div>
-              <img class="object-cover w-full rounded-lg dark:hidden" src="../..//images/placeholder-image.png" alt="">
-              <img class="hidden object-cover w-full rounded-lg dark:block"
-                src="../..//images/placeholder-image-dark.png" alt="">
-              <p class="mt-3 text-base font-normal text-gray-500 dark:text-gray-400">
-                Students and Teachers, save up to 60% on Adobe Creative Cloud.
-              </p>
-              <a href="#" title="" class="text-xs block mt-1.5 font-medium text-gray-400 uppercase dark:">
-                Ads placeholder
-              </a>
-            </div>
+            
           </div>
         </div>
       </div>
